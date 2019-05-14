@@ -1,0 +1,12 @@
+<tr class="table-active" [ngClass]="setClasses()">
+  <th scope="row">{{ book.name }}</th>
+  <td>{{ book.authors.join(', ') }}</td>
+  <td>{{ book.numberOfPages }}</td>
+  <td>{{ book.released | date}}</td>
+  <td>{{ book.publisher }}</td>
+  <td>{{ book.country }}</td>
+  <td>{{ book.mediaType }}</td>
+  <td>{{ book.isbn }}</td>
+  <td>Characters</td>
+  <td>Pov Characters</td>
+</tr>
