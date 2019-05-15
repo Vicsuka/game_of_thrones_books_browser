@@ -29,6 +29,17 @@ export class CharacterService {
     return this.http.get<Character>(url);
   }
 
+  getFilteredCharacters(name): Observable<Character[]> {
+    this.first = "";
+    this.prev = "";
+    this.next = "";
+    this.last = "";
+
+    let filterUrl = 'https://www.anapioficeandfire.com/api/characters?name='+name;
+
+    return this.http.get<Character[]>(`${filterUrl}`);
+  }
+
   getCharacters(): Observable<Character[]> {
     this.first = "";
     this.prev = "";

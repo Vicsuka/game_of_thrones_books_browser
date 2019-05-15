@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from '../../models/Character'
+import { NgForm } from '@angular/forms';
+import { FormsModule }   from '@angular/forms';
 import { CharacterService } from '../../services/character.service'
 
 @Component({
@@ -9,8 +11,19 @@ import { CharacterService } from '../../services/character.service'
 })
 export class CharactersComponent implements OnInit {
   characters:Character[];
+  filter:string;
 
   constructor(private characterService:CharacterService) { }
+
+  filterSearch(form: NgForm) {
+    console.log(form.value);
+    let temp = JSON.stringify(form.value).split('"');
+    this.filter = temp[3];
+    console.log('Filter name: ' + this.filter);
+    this.characterService.getFilteredCharacters(this.filter).subscribe(characters => {
+      this.characters = characters;
+     });
+  }
 
   ngOnInit() {
     // Subscribe is like then

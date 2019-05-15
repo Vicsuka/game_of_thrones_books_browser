@@ -14,6 +14,7 @@ import { HousesComponent } from './components/houses/houses.component';
 import { HouseItemComponent } from './components/house-item/house-item.component';
 import { SpecificCharactersComponent } from './components/specific-characters/specific-characters.component';
 import { SpecificHouseComponent } from './components/specific-house/specific-house.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SpecificHouseComponent } from './components/specific-house/specific-hou
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

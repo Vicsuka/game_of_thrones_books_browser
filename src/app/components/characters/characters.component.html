@@ -1,4 +1,8 @@
 <div >
+  <form class="form-inline my-2 my-lg-0" #filterForm="ngForm" (ngSubmit)="filterSearch(filterForm)">
+    <input class="form-control mr-sm-2 bg-primary" style="margin-left:15px;" type="text" placeholder="Search" id="name" name="name" ngModel>
+    <button class="btn btn-primary my-2 my-sm-0" type="submit" >Search</button>
+  </form>
   <ul class="pagination">
     <li class="page-item"><a class="page-link" (click)="firstFunc()" href="javascript:void(0)">First</a></li>
     <li class="page-item"><a class="page-link" (click)="prevFunc()" href="javascript:void(0)">Previous</a></li>
@@ -7,5 +11,5 @@
   </ul>
 
   <div app-character-item style="display:inline-block" *ngFor="let character of characters" [character]="character" routerLink="/character/{{ getInt(character.url) }}">
-  </div >
+  </div>
 </div>
