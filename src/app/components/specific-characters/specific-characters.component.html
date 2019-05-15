@@ -1,53 +1,58 @@
-<div *ngFor="let character of characters">
-    <h2>Specific Character</h2>
+<div *ngFor="let character of characters" class="container">
+    <h2>Specific Character: {{character.name=='' ?  '' : character.name }} <strong class="text-secondary">{{ character.aliases[0]!=''&&character.name!='' ? ' aka ': '' }}</strong>   {{character.aliases[0]=='' ?  '' : character.aliases[0] }}</h2>
     <br>
 
-    <p class="text-muted"> {{character.name=='' ?  '' : character.name }} <strong class="text-secondary">{{ character.aliases[0]!=''&&character.name!='' ? ' aka ': '' }}</strong>   {{character.aliases[0]=='' ?  '' : character.aliases[0] }}</p>
-    <p class="text-primary">Gender: {{ character.gender }}</p>
-    <p class="text-secondary">Culture: {{ character.culture }}</p>
-    <p class="text-warning">Born: {{ character.born }}</p>
-    <p class="text-danger">Died: {{ character.died }}</p>
-    <p class="text-success">Titles: {{ character.titles.join(', ') }}</p>
-    <p class="text-info">Aliases: {{ character.aliases.join(', ') }}</p>
+    <p class="text-primary col-6">{{ character.gender!='' ? 'Gender: '+character.gender : '' }}</p>
+    <p class="text-primary col-6">{{ character.culture!='' ? 'Culture: '+character.culture : '' }}</p>
+    <p class="text-success col-6">{{ character.born!='' ? 'Born: '+character.born : '' }}</p>
+    <p class="text-danger col-6">{{ character.died!='' ? 'Died: '+character.died : '' }}</p>
+    <p class="text-info col-6">{{ character.titles[0]!='' ? 'Titles: '+character.titles.join(', ') : '' }}</p>
+    <p class="text-warning col-6">{{ character.aliases[0]!='' ? 'Aliases: '+character.aliases.join(', ') : '' }}</p>
 
-    <p class="text-muted" >Father:</p>
+    
     <div *ngIf="father != undefined">
-      <p class="text-muted" app-character-item style="display:inline-block" [character]="father" routerLink="/character/{{ getInt(father.url) }}"
+      <p class="text-primary col-6" >Father:</p>
+      <p class="text-muted col-6" app-character-item style="display:inline-block" [character]="father" routerLink="/character/{{ getInt(father.url) }}"
       >
       </p>
     </div>
 
-    <p class="text-primary">Mother:</p>
+    
     <div *ngIf="mother != undefined">
-      <p class="text-muted" app-character-item style="display:inline-block" [character]="mother" routerLink="/character/{{ getInt(mother.url) }}">
+        <p class="text-primary col-6">Mother:</p>
+      <p class="text-muted col-6" app-character-item style="display:inline-block" [character]="mother" routerLink="/character/{{ getInt(mother.url) }}">
       </p>
     </div>
 
-    <p class="text-secondary">Spouse:</p>
+    
     <div *ngIf="spouse != undefined">
-      <p class="text-muted" app-character-item style="display:inline-block" [character]="spouse" routerLink="/character/{{ getInt(spouse.url) }}">
+        <p class="text-primary col-6">Spouse:</p>
+      <p class="text-muted col-6" app-character-item style="display:inline-block" [character]="spouse" routerLink="/character/{{ getInt(spouse.url) }}">
       </p>
     </div>
 
-    <p class="text-warning">Allegiances:</p>
+    
     <div *ngIf="houses.length != 0">
-      <p class="text-warning" app-house-item style="display:inline-block" *ngFor="let house of houses" [house]="house" routerLink="/house/{{ getInt(house.url) }}">
+      <p class="text-primary col-6">Allegiances:</p>
+      <p class="text-warning col-6" app-house-item style="display:inline-block" *ngFor="let house of houses" [house]="house" routerLink="/house/{{ getInt(house.url) }}">
       </p>
     </div>
 
-    <p class="text-danger">Books:</p>
+    
     <div *ngIf="books.length != 0">
-      <tr class="text-danger" app-book-item *ngFor="let book of books" [book]="book"> 
+      <p class="text-primary col-6">Books:</p>
+      <tr class="text-danger col-6" app-book-item *ngFor="let book of books" [book]="book"> 
       </tr>
     </div>
 
-    <p class="text-success">POV Books:</p>
+    
     <div *ngIf="povBooks.length != 0">
-      <tr class="text-danger" app-book-item *ngFor="let book of povBooks" [book]="book">
+        <p class="text-primary col-6">POV Books:</p>
+      <tr class="text-danger col-6" app-book-item *ngFor="let book of povBooks" [book]="book">
       </tr>
     </div>
 
-    <p class="text-info">TV Series: {{ character.tvSeries.join(', ') }}</p>
-    <p class="text-primary">Played By: {{ character.playedBy.join(', ') }}</p>
+    <p class="text-primary col-6">{{ character.tvSeries[0]!='' ? 'TV Series: '+character.tvSeries.join(', ') : '' }}</p>
+    <p class="text-primary col-6">{{ character.playedBy[0]!='' ? 'Played By: '+character.playedBy.join(', ') : '' }}</p>
     <button (click)="goBack()" type="button" class="btn btn-primary btn-lg btn-block">Back</button>
 </div>

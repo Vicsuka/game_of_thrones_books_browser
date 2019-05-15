@@ -2,10 +2,12 @@
     <div class="card border-dark mb-3" style="max-width: 30rem;" [ngClass]="setClasses()">
         <div class="card-header"> {{character.name=='' ?  '' : character.name }} <strong class="text-secondary">{{ character.aliases[0]!=''&&character.name!='' ? ' aka ': '' }}</strong>   {{character.aliases[0]=='' ?  '' : character.aliases[0] }}</div>
         <div class="card-body">
-          <h4 class="card-title">{{ character.gender }}</h4>
-          <p class="card-text">
+          <h5 class="card-title">{{ character.gender }}</h5>
+          <p class="card-text " >
             Titles: <b class="text-info">{{character.titles[0]!='' ? character.titles.join(', ') : "none"}} </b><br>
+            <br>
             Played By: {{character.playedBy[0]!='' ? character.playedBy.join(', ') : "unknown"}}<br>
+            <br>
             Culture: {{ character.culture !='' ? character.culture : "unknown" }}<br>
             <br>
             Appeared in:  <br><b class="text-danger">{{character.tvSeries[0]!='' ? character.tvSeries.join(', ') : "unknown"}} </b>

@@ -1,56 +1,61 @@
-<div *ngFor="let house of houses">
-    <h2>Specific house</h2> 
+<div *ngFor="let house of houses" class="container">
+    <h2>Specific house {{house.name=='' ?  '' : ':' + house.name }} </h2>
     <br>
 
-    <p class="text-muted"> {{house.name=='' ?  '' : house.name }}</p>
-    <p class="text-primary">Region: {{ house.region }}</p>
-    <p class="text-secondary">Coat of Arms: {{ house.coatOfArms }}</p>
-    <p class="text-warning">Words: {{ house.words }}</p>
-    <p class="text-danger">Titles: {{ house.titles.join(', ') }}</p>
-    <p class="text-success">Seats: {{ house.seats.join(', ') }}</p>
+    <p class="text-warning blockquote text-center col-6">{{ house.words!='' ? '"'+house.words+'"' : '' }}</p>
+    <p class="text-success col-6">{{ house.region!='' ? 'Region: '+house.region : '' }}</p>
+    <p class="text-primary col-6">{{ house.coatOfArms!='' ? 'Coat of Arms: '+house.coatOfArms : '' }}</p>
+    <p class="text-info col-6">{{ house.titles[0]!='' ? 'Titles: '+house.titles.join(', ') : '' }}</p>
+    <p class="text-primary col-6">{{ house.seats[0]!='' ? 'Seats: '+house.seats.join(', ') : '' }}</p>
 
-    <p class="text-info">Current Lord:</p>
+    
     <div *ngIf="currentLord != undefined">
-        <p class="text-info" app-character-item style="display:inline-block" [character]="currentLord" routerLink="/character/{{ getInt(currentLord.url) }}"
+        <p class="text-primary col-6">Current Lord:</p>
+        <p class="text-info col-6" app-character-item style="display:inline-block" [character]="currentLord" routerLink="/character/{{ getInt(currentLord.url) }}"
         >
         </p>
       </div>
 
-    <p class="text-muted">Heir: </p>
+    
     <div *ngIf="heir != undefined">
-        <p class="text-muted" app-character-item style="display:inline-block" [character]="heir" routerLink="/character/{{ getInt(heir.url) }}"
+        <p class="text-primary col-6">Heir: </p>
+        <p class="text-muted col-6" app-character-item style="display:inline-block" [character]="heir" routerLink="/character/{{ getInt(heir.url) }}"
         >
         </p>
       </div>
 
-    <p class="text-primary">Overlord: </p>
+    
     <div *ngIf="overlord != undefined">
-        <p class="text-primary" app-house-item style="display:inline-block" [house]="overlord" routerLink="/house/{{ getInt(overlord.url) }}"
+        <p class="text-primary col-6">Overlord: </p>
+        <p class="text-primary col-6" app-house-item style="display:inline-block" [house]="overlord" routerLink="/house/{{ getInt(overlord.url) }}"
         >
         </p>
       </div>
 
-    <p class="text-secondary">Founded: {{ house.founded }}</p>
+    <p class="text-primary col-6">{{ house.founded!='' ? 'Founded : ' + house.founded : '' }}</p>
 
-    <p class="text-warning">Founder: </p>
+    
     <div *ngIf="founder != undefined">
-        <p class="text-warning" app-character-item style="display:inline-block" [character]="founder" routerLink="/character/{{ getInt(founder.url) }}"
+        <p class="text-primary col-6">Founder: </p>
+        <p class="text-warning col-6" app-character-item style="display:inline-block" [character]="founder" routerLink="/character/{{ getInt(founder.url) }}"
         >
         </p>
       </div>
 
-    <p class="text-danger">Died Out: {{ house.diedOut }}</p>
-    <p class="text-success">Ancestral Weapons: {{ house.ancestralWeapons.join(', ') }}</p>
+    <p class="text-danger col-6">{{ house.diedOut!='' ? 'Died out: ' + house.diedOut : '' }}</p>
+    <p class="text-success col-6">{{ house.ancestralWeapons[0]!='' ? 'Ancestral Weapons: '+house.ancestralWeapons.join(', ') : '' }}</p>
 
-    <p class="text-info">Cadet Branches: </p>
+    
     <div *ngIf="cadetBranches.length != 0">
-        <p class="text-warning" app-house-item style="display:inline-block" *ngFor="let house of cadetBranches" [house]="house" routerLink="/house/{{ getInt(house.url) }}">
+        <p class="text-primary col-6">Cadet Branches: </p>
+        <p class="text-warning col-6" app-house-item style="display:inline-block" *ngFor="let house of cadetBranches" [house]="house" routerLink="/house/{{ getInt(house.url) }}">
         </p>
       </div>
 
-    <p class="text-primary">Sworn Members: </p>
+    
     <div *ngIf="swornMembers.length != 0">
-        <p class="text-warning" app-character-item style="display:inline-block" *ngFor="let character of swornMembers" [character]="character" routerLink="/character/{{ getInt(character.url) }}">
+        <p class="text-primary col-6">Sworn Members: </p>
+        <p class="text-warning col-6" app-character-item style="display:inline-block" *ngFor="let character of swornMembers" [character]="character" routerLink="/character/{{ getInt(character.url) }}">
         </p>
       </div>
 

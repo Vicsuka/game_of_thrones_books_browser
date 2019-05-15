@@ -2,14 +2,16 @@
     <div class="card-header">{{ house.region!='' ? house.region : '' }} </div>
     <div class="card-body">
       <h4 class="card-title">{{house.name=='' ?  '' : house.name }}</h4>
-      <p class="card-text">
+      <div class="card-text">
           Titles: <b class="text-info">{{house.titles[0]!='' ? house.titles.join(', ') : "none"}} </b><br>
           <br>
-        Words: {{ house.words!='' ? house.words : 'none'}}<br>
         <br>
         Coat of Arms: {{ house.coatOfArms!='' ? house.coatOfArms : 'none'}}<br>
         <br>
         Seats: {{ house.seats[0]!='' ? house.seats.join(', ') : 'unknown' }}<br>
-      </p>
+        <br>
+        <br>
+        <div class="blockquote text-center bottom-align-text">{{ house.words!='' ? '"' + house.words+'"' : ''}}</div><br>
+      </div> 
     </div>
   </div>
