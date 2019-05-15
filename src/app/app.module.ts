@@ -13,6 +13,7 @@ import { CharacterItemComponent } from './components/character-item/character-it
 import { HousesComponent } from './components/houses/houses.component';
 import { HouseItemComponent } from './components/house-item/house-item.component';
 import { SpecificCharactersComponent } from './components/specific-characters/specific-characters.component';
+import { SpecificHouseComponent } from './components/specific-house/specific-house.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SpecificCharactersComponent } from './components/specific-characters/sp
     CharacterItemComponent,
     HousesComponent,
     HouseItemComponent,
-    SpecificCharactersComponent
+    SpecificCharactersComponent,
+    SpecificHouseComponent
   ],
   imports: [
     BrowserModule,

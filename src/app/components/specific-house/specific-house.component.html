@@ -1,0 +1,21 @@
+<div *ngFor="let house of houses">
+    <h2>Specific house</h2> 
+    <br>
+
+    <p class="text-muted"> {{house.name=='' ?  '' : house.name }}</p>
+    <p class="text-primary">Region: {{ house.region }}</p>
+    <p class="text-secondary">Coat of Arms: {{ house.coatOfArms }}</p>
+    <p class="text-warning">Words: {{ house.words }}</p>
+    <p class="text-danger">Titles: {{ house.titles.join(', ') }}</p>
+    <p class="text-success">Seats: {{ house.seats.join(', ') }}</p>
+    <p class="text-info">Current Lord: {{ house.currentLord }}</p>
+    <p class="text-muted">Heir: {{ house.heir }}</p>
+    <p class="text-primary">Overlord: {{ house.overlord }}</p>
+    <p class="text-secondary">Founded: {{ house.founded }}</p>
+    <p class="text-warning">Founder: {{ house.founder }}</p>
+    <p class="text-danger">Died Out: {{ house.diedOut }}</p>
+    <p class="text-success">Ancestral Weapons: {{ house.ancestralWeapons.join(', ') }}</p>
+    <p class="text-info">Cadet Branches: {{ house.cadetBranches.join(', ') }}</p>
+    <p class="text-primary">Sworn Members: {{ house.swornMembers.join(', ') }}</p>
+    <button (click)="goBack()" type="button" class="btn btn-primary btn-lg btn-block">Back</button>
+</div>

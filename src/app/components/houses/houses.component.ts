@@ -20,6 +20,12 @@ export class HousesComponent implements OnInit {
     });
   }
 
+  getInt(url: string) {
+    let numbers = url.split('/');
+    var result = parseInt(numbers[5]);
+    return result;
+  }
+
   firstFunc() {
     if (this.houseService.first != undefined)
     this.houseService.houseUrl = this.houseService.first;

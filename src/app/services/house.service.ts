@@ -10,14 +10,22 @@ import { Observable } from 'rxjs';
 export class HouseService {
   houseUrl:string;
 
-  public first: string = "";
-  public prev: string = "";
-  public next: string = "";
-  public last: string = "";
+  public first: string;
+  public prev: string;
+  public next: string;
+  public last: string;
 
   constructor(private http:HttpClient) {
     this.houseUrl = "https://www.anapioficeandfire.com/api/houses?page=1&pageSize=50";
+    this.first = "";
+    this.prev = "";
+    this.next = "";
+    this.last = "";
    }
+
+  getSpecificHouse(url:string): Observable<House> {
+    return this.http.get<House>(url);
+  }
 
    getHouses(): Observable<House[]> {
     this.first = "";

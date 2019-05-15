@@ -31,4 +31,7 @@ export class SpecificCharactersComponent implements OnInit {
 
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }
