@@ -1,3 +1,11 @@
+td {
+    border-left: solid 2px black;
+}
+
+th {
+    border-left: solid 2px black;
+}
+
 
 .format {
     color: #111111;

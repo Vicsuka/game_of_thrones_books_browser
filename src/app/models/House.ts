@@ -9,8 +9,8 @@ export class House {
     currentLord: string;
     heir: string;
     overlord: string;
-    fouded: string;
-    fouder: string;
+    founded: string;
+    founder: string;
     diedOut: string;
     ancestralWeapons: string[];
     cadetBranches: string[];
