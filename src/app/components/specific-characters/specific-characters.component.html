@@ -1,0 +1,18 @@
+<div>
+  <h1>
+    Specific Characters
+  </h1>
+  <ul>
+    <li *ngFor="let character of characters">
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+          <div class="card-header"> {{ character.gender }}  {{ character.born }} - {{ character.died }}</div>
+          <div class="card-body">
+            <h4 class="card-title">{{character.name=='' ?  '' : character.name }} {{ character.aliases[0]!=''&&character.name!='' ? ' aka ': '' }}   {{character.aliases[0]=='' ?  '' : character.aliases[0] }}</h4>
+            <p class="card-text">Titles: {{character.titles[0]!='' ? character.title : "none"}}</p>
+            <p class="card-text">Played By: {{character.playedBy[0]!='' ? character.playedBy : "none"}}</p>
+
+          </div>
+        </div>
+    </li>
+  </ul >
+</div>

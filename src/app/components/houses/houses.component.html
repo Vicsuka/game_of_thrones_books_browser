@@ -5,6 +5,6 @@
         <li class="page-item"><a class="page-link" (click)="nextFunc()" href="javascript:void(0)">Next</a></li>
         <li class="page-item"><a class="page-link" (click)="lastFunc()" href="javascript:void(0)">Last</a></li>
       </ul>
-    <ul app-house-item *ngFor="let house of houses" [house]="house">
-    </ul >
+    <div app-house-item style="display:inline-block" *ngFor="let house of houses" [house]="house">
+    </div>
   </div>

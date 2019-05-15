@@ -2,3 +2,9 @@
     color: #111111;
     font-size: 14.25px;
 }
+
+.card {
+    margin-left: 2rem;
+    min-height: 300px;
+    min-width: 500px;
+}

@@ -1,4 +1,4 @@
-<tr class="table-active" [ngClass]="setClasses()">
+<tr class="table-active" [ngClass]="setClasses()" >
   <th scope="row">{{ book.name }}</th>
   <td>{{ book.authors.join(', ') }}</td>
   <td>{{ book.numberOfPages }}</td>
@@ -7,6 +7,6 @@
   <td>{{ book.country }}</td>
   <td>{{ book.mediaType }}</td>
   <td>{{ book.isbn }}</td>
-  <td>Characters</td>
+  <td><a class="page-link" (click)="charactersFunc()" href="javascript:void(0)">Characters</a></td>
   <td>Pov Characters</td>
 </tr>

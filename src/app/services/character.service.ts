@@ -11,15 +11,23 @@ import { tap, first } from 'rxjs/operators';
 export class CharacterService {
   public charactersUrl:string;
 
-
-  public first: string = "";
-  public prev: string = "";
-  public next: string = "";
-  public last: string = "";
+  public first: string;
+  public prev: string;
+  public next: string;
+  public last: string;
 
   constructor(private http:HttpClient) {
     this.charactersUrl = 'https://www.anapioficeandfire.com/api/characters?page=1&pageSize=50';
+    this.first = "";
+    this.prev = "";
+    this.next = "";
+    this.last = "";
+
    }
+
+  getSpecificCharacter(url:string): Observable<Character> {
+    return this.http.get<Character>(url);
+  }
 
   getCharacters(): Observable<Character[]> {
     this.first = "";

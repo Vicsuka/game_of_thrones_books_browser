@@ -20,6 +20,7 @@ export class CharactersComponent implements OnInit {
   }
 
   firstFunc() {
+    if ( this.characterService.first != undefined)
     this.characterService.charactersUrl = this.characterService.first;
     this.characterService.getCharacters().subscribe(characters => {
       this.characters = characters;
@@ -27,6 +28,7 @@ export class CharactersComponent implements OnInit {
   }
 
   prevFunc() {
+    if ( this.characterService.prev != undefined)
     this.characterService.charactersUrl = this.characterService.prev;
     this.characterService.getCharacters().subscribe(characters => {
       this.characters = characters;
@@ -34,6 +36,7 @@ export class CharactersComponent implements OnInit {
   }
 
   nextFunc() {
+    if ( this.characterService.next != undefined)
     this.characterService.charactersUrl = this.characterService.next;
     this.characterService.getCharacters().subscribe(characters => {
       this.characters = characters;
@@ -41,6 +44,7 @@ export class CharactersComponent implements OnInit {
   }
 
   lastFunc() {
+    if ( this.characterService.last != undefined)
     this.characterService.charactersUrl = this.characterService.last;
     this.characterService.getCharacters().subscribe(characters => {
       this.characters = characters;

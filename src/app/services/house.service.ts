@@ -31,7 +31,6 @@ export class HouseService {
   }
 
   printout_response(url: string) {
-    var parsed;
     this.http.get<House[]>(url,{ observe: 'response' }).subscribe(resp => {
       const Link  = this.parse_link_header(resp.headers.get('Link'));
         this.first  = Link["first"];

@@ -1,4 +1,4 @@
-<div>
+<div >
   <ul class="pagination">
     <li class="page-item"><a class="page-link" (click)="firstFunc()" href="javascript:void(0)">First</a></li>
     <li class="page-item"><a class="page-link" (click)="prevFunc()" href="javascript:void(0)">Previous</a></li>
@@ -6,6 +6,6 @@
     <li class="page-item"><a class="page-link" (click)="lastFunc()" href="javascript:void(0)">Last</a></li>
   </ul>
 
-  <ul app-character-item *ngFor="let character of characters" [character]="character">
-  </ul >
+  <div app-character-item style="display:inline-block" *ngFor="let character of characters" [character]="character">
+  </div >
 </div>

@@ -21,6 +21,7 @@ export class HousesComponent implements OnInit {
   }
 
   firstFunc() {
+    if (this.houseService.first != undefined)
     this.houseService.houseUrl = this.houseService.first;
     this.houseService.getHouses().subscribe(houses => {
       this.houses = houses;
@@ -28,6 +29,7 @@ export class HousesComponent implements OnInit {
   }
 
   prevFunc() {
+    if (this.houseService.prev != undefined)
     this.houseService.houseUrl = this.houseService.prev;
     this.houseService.getHouses().subscribe(houses => {
       this.houses = houses;
@@ -35,6 +37,7 @@ export class HousesComponent implements OnInit {
   }
 
   nextFunc() {
+    if (this.houseService.next != undefined)
     this.houseService.houseUrl = this.houseService.next;
     this.houseService.getHouses().subscribe(houses => {
       this.houses = houses;
@@ -42,6 +45,7 @@ export class HousesComponent implements OnInit {
   }
 
   lastFunc() {
+    if (this.houseService.last != undefined)
     this.houseService.houseUrl = this.houseService.last;
     this.houseService.getHouses().subscribe(houses => {
       this.houses = houses;

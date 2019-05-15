@@ -1,3 +1,15 @@
-<li class="list-group-item d-flex justify-content-between align-items-center" [ngClass]="setClasses()">
-  {{character.name=='' ?  '' : character.name }} {{ character.aliases[0]!=''&&character.name!='' ? ' aka ': '' }}   {{character.aliases[0]=='' ?  '' : character.aliases[0] }}
-</li>
+
+    <div class="card border-dark mb-3" style="max-width: 30rem;" [ngClass]="setClasses()">
+        <div class="card-header"> {{character.name=='' ?  '' : character.name }} <strong class="text-secondary">{{ character.aliases[0]!=''&&character.name!='' ? ' aka ': '' }}</strong>   {{character.aliases[0]=='' ?  '' : character.aliases[0] }}</div>
+        <div class="card-body">
+          <h4 class="card-title">{{ character.gender }}</h4>
+          <p class="card-text">
+            Titles: <b class="text-info">{{character.titles[0]!='' ? character.titles.join(', ') : "none"}} </b><br>
+            Played By: {{character.playedBy[0]!='' ? character.playedBy.join(', ') : "unknown"}}<br>
+            Culture: {{ character.culture !='' ? character.culture : "unknown" }}<br>
+            <br>
+            Appeared in:  <br><b class="text-danger">{{character.tvSeries[0]!='' ? character.tvSeries.join(', ') : "unknown"}} </b>
+
+          </p>
+        </div>
+      </div>
