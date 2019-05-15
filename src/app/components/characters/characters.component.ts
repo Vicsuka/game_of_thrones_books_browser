@@ -19,6 +19,12 @@ export class CharactersComponent implements OnInit {
     });
   }
 
+  getInt(url: string) {
+    let numbers = url.split('/');
+    var result = parseInt(numbers[5]);
+    return result;
+  }
+
   firstFunc() {
     if ( this.characterService.first != undefined)
     this.characterService.charactersUrl = this.characterService.first;

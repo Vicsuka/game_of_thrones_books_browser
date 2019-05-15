@@ -6,6 +6,6 @@
     <li class="page-item"><a class="page-link" (click)="lastFunc()" href="javascript:void(0)">Last</a></li>
   </ul>
 
-  <div app-character-item style="display:inline-block" *ngFor="let character of characters" [character]="character">
+  <div app-character-item style="display:inline-block" *ngFor="let character of characters" [character]="character" routerLink="/character/{{ getInt(character.url) }}">
   </div >
 </div>

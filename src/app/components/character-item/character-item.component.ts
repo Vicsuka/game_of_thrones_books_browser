@@ -9,11 +9,13 @@ import { Character } from 'src/app/models/Character'
 export class CharacterItemComponent implements OnInit {
   @Input() character: Character;
 
-  constructor() { 
-    
+  constructor() {    
   }
 
   ngOnInit() {
+    var strings = this.character.url.split('-');
+    let id = strings[4];
+    this.character.id = parseInt(id);
   }
 
   setClasses() {

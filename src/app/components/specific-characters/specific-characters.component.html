@@ -1,18 +1,20 @@
-<div>
-  <h1>
-    Specific Characters
-  </h1>
-  <ul>
-    <li *ngFor="let character of characters">
-      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-          <div class="card-header"> {{ character.gender }}  {{ character.born }} - {{ character.died }}</div>
-          <div class="card-body">
-            <h4 class="card-title">{{character.name=='' ?  '' : character.name }} {{ character.aliases[0]!=''&&character.name!='' ? ' aka ': '' }}   {{character.aliases[0]=='' ?  '' : character.aliases[0] }}</h4>
-            <p class="card-text">Titles: {{character.titles[0]!='' ? character.title : "none"}}</p>
-            <p class="card-text">Played By: {{character.playedBy[0]!='' ? character.playedBy : "none"}}</p>
+<div *ngFor="let character of characters">
+    <h2>Specific Character</h2>
+    <br>
 
-          </div>
-        </div>
-    </li>
-  </ul >
+    <p class="text-muted"> {{character.name=='' ?  '' : character.name }} <strong class="text-secondary">{{ character.aliases[0]!=''&&character.name!='' ? ' aka ': '' }}</strong>   {{character.aliases[0]=='' ?  '' : character.aliases[0] }}</p>
+    <p class="text-primary">Gender: {{ character.gender }}</p>
+    <p class="text-secondary">Culture: {{ character.culture }}</p>
+    <p class="text-warning">Born: {{ character.born }}</p>
+    <p class="text-danger">Died: {{ character.died }}</p>
+    <p class="text-success">Titles: {{ character.titles.join(', ') }}</p>
+    <p class="text-info">Aliases: {{ character.aliases.join(', ') }}</p>
+    <p class="text-muted">Father: {{ character.father }}</p>
+    <p class="text-primary">Mother: {{ character.mother }}</p>
+    <p class="text-secondary">Spouse: {{ character.spouse }}</p>
+    <p class="text-warning">Allegiances: {{ character.allegiances.join(', ') }}</p>
+    <p class="text-danger">Books: {{ character.books.join(', ') }}</p>
+    <p class="text-success">POV Books: {{ character.povBooks.join(', ') }}</p>
+    <p class="text-info">TV Series: {{ character.tvSeries.join(', ') }}</p>
+    <p class="text-primary">Played By: {{ character.playedBy.join(', ') }}</p>
 </div>

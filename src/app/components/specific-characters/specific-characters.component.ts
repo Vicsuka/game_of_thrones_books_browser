@@ -1,4 +1,6 @@
 import { Component, OnInit, OnChanges, SimpleChange, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { Character } from '../../models/Character'
 import { CharacterService } from '../../services/character.service'
 
@@ -8,18 +10,25 @@ import { CharacterService } from '../../services/character.service'
   styleUrls: ['./specific-characters.component.css']
 })
 export class SpecificCharactersComponent implements OnInit {
-  @Input() characterLinks: string[];
-  characters:Character[];
+  characterLinks: string[] = [];
+  characters:Character[] = [];
 
-  constructor(private characterService:CharacterService) { }
+  constructor(
+    private characterService:CharacterService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
 
   ngOnInit() {
-    if (this.characterLinks != undefined)
-    this.characterLinks.forEach(link => {
-      this.characterService.getSpecificCharacter(link).subscribe(character => {
-        this.characters.push(character);
-      })
-    });
+    this.getCharacter();
+  }
+
+  getCharacter():void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    var myCharacter = 'https://www.anapioficeandfire.com/api/characters/' + id;
+    this.characterService.getSpecificCharacter(myCharacter)
+      .subscribe(char => this.characters.push(char))
+
   }
 
 }
