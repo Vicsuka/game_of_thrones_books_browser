@@ -8,24 +8,27 @@ import { HouseService } from '../../services/house.service';
   styleUrls: ['./houses.component.css']
 })
 export class HousesComponent implements OnInit {
+  //Storing all the houses cointained as House
   houses:House[];
 
   constructor(private houseService:HouseService) { 
   }
 
   ngOnInit() {
-      // Subscribe is like then
+      //Getting the first 50 house
       this.houseService.getHouses().subscribe(houses => {
         this.houses = houses;
     });
   }
 
+  //Returns the ID of the house from URL
   getInt(url: string) {
     let numbers = url.split('/');
     var result = parseInt(numbers[5]);
     return result;
   }
 
+  //Pagination first click function
   firstFunc() {
     if (this.houseService.first != undefined)
     this.houseService.houseUrl = this.houseService.first;
@@ -34,6 +37,7 @@ export class HousesComponent implements OnInit {
     });
   }
 
+  //Pagination previous click function
   prevFunc() {
     if (this.houseService.prev != undefined)
     this.houseService.houseUrl = this.houseService.prev;
@@ -42,6 +46,7 @@ export class HousesComponent implements OnInit {
     });
   }
 
+  //Pagination next click function
   nextFunc() {
     if (this.houseService.next != undefined)
     this.houseService.houseUrl = this.houseService.next;
@@ -50,6 +55,7 @@ export class HousesComponent implements OnInit {
     });
   }
 
+  //Pagination last click function
   lastFunc() {
     if (this.houseService.last != undefined)
     this.houseService.houseUrl = this.houseService.last;

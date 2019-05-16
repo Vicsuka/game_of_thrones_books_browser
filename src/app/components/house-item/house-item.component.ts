@@ -7,6 +7,7 @@ import { House } from 'src/app/models/House'
   styleUrls: ['./house-item.component.css']
 })
 export class HouseItemComponent implements OnInit {
+  //We store the House as an input
   @Input() house: House;
 
   constructor() { 
@@ -16,6 +17,7 @@ export class HouseItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  //Set the CSS classes for the house
   setClasses() {
     let classes = {
         house: true,

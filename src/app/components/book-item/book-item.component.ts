@@ -7,6 +7,7 @@ import { Book } from 'src/app/models/Book'
   styleUrls: ['./book-item.component.css']
 })
 export class BookItemComponent implements OnInit {
+  //Input is a Book
   @Input() book: Book;
 
   constructor() { }
@@ -14,6 +15,7 @@ export class BookItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  //Setting the CSS for the Books
   setClasses() {
     let classes = {
         book: true,

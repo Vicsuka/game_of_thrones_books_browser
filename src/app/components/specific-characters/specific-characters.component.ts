@@ -15,6 +15,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./specific-characters.component.css']
 })
 export class SpecificCharactersComponent implements OnInit {
+  //We need to store the Objects connected to the Specific Character
   characters:Character[] = [];
   books:Book[] = [];
   povBooks:Book[] = [];
@@ -24,6 +25,7 @@ export class SpecificCharactersComponent implements OnInit {
   spouse:Character;
   ids:number;
 
+  //Setting the required services
   constructor(
     private bookService:BookService,
     private characterService:CharacterService,
@@ -33,6 +35,7 @@ export class SpecificCharactersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    //IMPORTANT we this to make the page refresh when switching from one character to another
     this.route.params.subscribe(params => {
       this.ids = params['id'];
       console.log("New id = " + this.ids);
@@ -42,6 +45,7 @@ export class SpecificCharactersComponent implements OnInit {
   }
 
   getCharacter():void {
+    //Clearing previous values
     this.characters= [];
     this.books = [];
     this.povBooks = [];
@@ -49,35 +53,44 @@ export class SpecificCharactersComponent implements OnInit {
     this.father= undefined;
     this.mother= undefined;
     this.spouse= undefined;
+    //Getting the ID from the parameters then setting myCharacter for the resource
     const id = this.route.snapshot.paramMap.get('id');
     var myCharacter = 'https://www.anapioficeandfire.com/api/characters/' + id;
+    //Getting our specific Character but also getting it's connected resources
     this.characterService.getSpecificCharacter(myCharacter)
       .subscribe(char => {
+        //The Character itself
         this.characters.push(char);
         
+        //The books that the Character has appeared in
         char.books.forEach(book => {
           this.bookService.getSpecificBook(book)
             .subscribe(book => this.books.push(book))
         });
 
+        //The POV books that the Character has appeared in
         char.povBooks.forEach(book => {
           this.bookService.getSpecificBook(book)
             .subscribe(book => this.povBooks.push(book))
         });
 
+        //The houses that the Character is loyal to
         char.allegiances.forEach(house => {
           this.houseService.getSpecificHouse(house)
             .subscribe(house => this.houses.push(house))
         });
-
+        
+        //The character's father(also a Character)
         if (char.father != '')
         this.characterService.getSpecificCharacter(char.father)
           .subscribe(fat => this.father = fat);
         
+        //The character's mother(also a Character)
         if (char.mother != '')
         this.characterService.getSpecificCharacter(char.mother)
         .subscribe(mot => this.mother = mot);
 
+        //The character's spouse(also a Character)
         if (char.spouse != '')
         this.characterService.getSpecificCharacter(char.spouse)
         .subscribe(spo => this.spouse = spo);
@@ -85,12 +98,14 @@ export class SpecificCharactersComponent implements OnInit {
 
   }
 
+  //Return the id of the character
   getInt(url: string) {
     let numbers = url.split('/');
     var result = parseInt(numbers[5]);
     return result;
   }
 
+  //Go back to the previous page component
   goBack(): void {
     this.location.back();
   }
