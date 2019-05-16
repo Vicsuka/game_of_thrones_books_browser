@@ -28,7 +28,7 @@ import { FormsModule } from '@angular/forms';
     HousesComponent,
     HouseItemComponent,
     SpecificCharactersComponent,
-    SpecificHouseComponent
+    SpecificHouseComponent,
   ],
   imports: [
     BrowserModule,

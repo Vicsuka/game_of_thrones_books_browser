@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
+import { PersistanceServiceService} from './persistance-service.service'
 import { Character } from '../models/Character'
 import { Observable } from 'rxjs';
 import { tap, first } from 'rxjs/operators';
@@ -17,7 +18,7 @@ export class CharacterService {
   public next: string;
   public last: string;
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private persister: PersistanceServiceService) {
     //Set base Character url and clear pagination urls
     this.charactersUrl = 'https://www.anapioficeandfire.com/api/characters?page=1&pageSize=50';
     this.first = "";
@@ -50,6 +51,7 @@ export class CharacterService {
   }
 
   getCharacters(): Observable<Character[]> {
+
     this.first = "";
     this.prev = "";
     this.next = "";
